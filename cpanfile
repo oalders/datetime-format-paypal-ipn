@@ -1,6 +1,7 @@
 requires "Carp" => "0";
 requires "DateTime::Format::Strptime" => "0";
 requires "DateTime::TimeZone" => "0";
+requires "perl" => "5.006";
 requires "strict" => "0";
 requires "warnings" => "0";
 
