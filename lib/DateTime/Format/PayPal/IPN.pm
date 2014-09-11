@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 
+use 5.006;
+
 package DateTime::Format::PayPal::IPN;
 
 use Carp qw( croak );
