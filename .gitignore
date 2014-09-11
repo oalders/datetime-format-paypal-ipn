@@ -1,3 +1,4 @@
-/DateTime-Format-PayPal-IPN*
-.build
 *.swp
+.build
+.tidyall.d
+/DateTime-Format-PayPal-IPN*

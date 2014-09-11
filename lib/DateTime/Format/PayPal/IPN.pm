@@ -49,7 +49,7 @@ __END__
     my $dt = DateTime::Format::PayPal::IPN->parse_timestamp( '02:35:35 Feb 16, 2010 PST' );
 
     # 2010-02-16 02:35:35
-    # DateTime::Format::PayPal::IPN->format_timestamp($dt);
+    DateTime::Format::PayPal::IPN->format_timestamp($dt);
 
 =head1 DESCRIPTION
 
