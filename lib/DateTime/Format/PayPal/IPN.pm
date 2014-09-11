@@ -8,8 +8,11 @@ use DateTime::TimeZone;
 use DateTime::Format::Strptime;
 
 my $pattern = '%H:%M:%S %b %d, %Y';
-my $strp    = DateTime::Format::Strptime->new( pattern => $pattern );
 my $tz      = DateTime::TimeZone->new( name => 'America/Los_Angeles' );
+my $strp    = DateTime::Format::Strptime->new(
+    pattern   => $pattern,
+    time_zone => $tz,
+);
 
 sub parse_timestamp {
     my $class = shift;
@@ -21,7 +24,6 @@ sub parse_timestamp {
     my $dt = $strp->parse_datetime( $date );
     croak 'could not parse string: ' . $orig unless $dt;
 
-    $dt->set_time_zone( $dt );
     return $dt;
 }
 
