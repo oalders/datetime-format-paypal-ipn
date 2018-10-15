@@ -35,6 +35,9 @@ sub format_timestamp {
     my $class = shift;
     my $dt    = shift;
 
+    croak 'missing date, DateTime object'  unless $dt;
+    croak 'not a DateTime object received' unless (ref($dt) eq 'DateTime');
+
     my $stamp = $dt->strftime( $pattern, $dt );
     $stamp .= $dt->is_dst ? ' PDT' : ' PST';
     return $stamp;

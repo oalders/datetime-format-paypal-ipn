@@ -12,6 +12,18 @@ like(
   'parse_timestamp() died when no date string passed',
 );
 
+like(
+  exception { DateTime::Format::PayPal::IPN->format_timestamp; },
+  qr/missing date/,
+  'format_timestamp() died when no DateTime object passed',
+);
+
+like(
+  exception { DateTime::Format::PayPal::IPN->format_timestamp({ dummydate => 1 }); },
+  qr/not a DateTime object/,
+  'format_timestamp() died when not a DateTime object passed',
+);
+
 my $date = '02:35:35 Feb 16, 2010 PST';
 
 my $dt = DateTime::Format::PayPal::IPN->parse_timestamp( $date );
