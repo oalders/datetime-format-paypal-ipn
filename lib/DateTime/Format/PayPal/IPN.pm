@@ -20,6 +20,8 @@ sub parse_timestamp {
     my $class = shift;
     my $date  = shift;
 
+    croak 'missing date string with timestamp' unless $date;
+
     my $orig = $date;
     $date =~ s{ (PST|PDT)\z}{};
 
