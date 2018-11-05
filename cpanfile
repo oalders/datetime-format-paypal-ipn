@@ -10,6 +10,7 @@ on 'build' => sub {
 };
 
 on 'test' => sub {
+  requires "Test::Fatal" => "0";
   requires "Test::Most" => "0";
 };
 

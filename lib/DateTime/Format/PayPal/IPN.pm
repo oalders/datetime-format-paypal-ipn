@@ -20,6 +20,8 @@ sub parse_timestamp {
     my $class = shift;
     my $date  = shift;
 
+    croak 'missing date string with timestamp' unless $date;
+
     my $orig = $date;
     $date =~ s{ (PST|PDT)\z}{};
 
@@ -32,6 +34,9 @@ sub parse_timestamp {
 sub format_timestamp {
     my $class = shift;
     my $dt    = shift;
+
+    croak 'missing date, DateTime object'  unless $dt;
+    croak 'not a DateTime object received' unless (ref($dt) eq 'DateTime');
 
     my $stamp = $dt->strftime( $pattern, $dt );
     $stamp .= $dt->is_dst ? ' PDT' : ' PST';
